@@ -21,8 +21,8 @@
   <ul id="menuDetailOptional"></ul>
   <div class="mt-4 d-flex justify-content-center align-items-center gap-4">
     <a id="menuDetailCall" href="#" class="hero-icon-btn call" title="Call"><i class="bi bi-telephone-fill"></i></a>
-    <a href="#request-call" class="hero-icon-btn request" title="Request a Call"><i class="bi bi-telephone-outbound-fill"></i></a>
-    <a href="#contact" class="hero-icon-btn inquire" title="Inquire"><i class="bi bi-envelope-fill"></i></a>
+    <a id="menuDetailRequestCall" href="#request-call" class="hero-icon-btn request" title="Request a Call"><i class="bi bi-telephone-outbound-fill"></i></a>
+    <a id="menuDetailInquire" href="#contact" class="hero-icon-btn inquire" title="Inquire"><i class="bi bi-envelope-fill"></i></a>
   </div>
 </div>
     </div>
@@ -52,5 +52,24 @@
         }
       });
     });
+  });
+  // Close modal and navigate on icon click
+  function closeModalAndNavigate(selector, callback) {
+    document.querySelector(selector).addEventListener('click', function(e) {
+      e.preventDefault();
+      const modalEl = document.getElementById('menuDetailModal');
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      modal.hide();
+      setTimeout(callback, 350); // wait for modal to close
+    });
+  }
+  closeModalAndNavigate('#menuDetailCall', function() {
+    window.location.href = document.getElementById('menuDetailCall').href;
+  });
+  closeModalAndNavigate('#menuDetailRequestCall', function() {
+    window.location.hash = 'request-call';
+  });
+  closeModalAndNavigate('#menuDetailInquire', function() {
+    window.location.hash = 'contact';
   });
 </script>

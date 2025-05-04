@@ -7,14 +7,13 @@
         <div class="hero-content">
             <div class="brand">Pera Caters</div>
             <div class="tagline">ඔබගේ විශේෂ අවස්ථාවන් සඳහා රසවත් ආහාර</div>
-            <!-- Icons only, using Bootstrap Icons -->
-            <a href="tel:07XXXXXXXX" class="hero-icon-btn call" title="Call"><i class="bi bi-telephone-fill"></i></a>
-            <a href="#request-call" class="hero-icon-btn request" title="Request a Call"><i class="bi bi-telephone-outbound-fill"></i></a>
-            <a href="#contact" class="hero-icon-btn inquire" title="Inquire"><i class="bi bi-envelope-fill"></i></a>
-            <a href="https://facebook.com/yourpage" class="hero-icon-btn facebook" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://g.page/your-google-profile" class="hero-icon-btn google" target="_blank" title="Google Profile"><i class="bi bi-google"></i></a>
-
-
+            <div class="hero-buttons mt-2">
+                <a href="tel:07XXXXXXXX" class="hero-icon-btn call" title="Call"><i class="bi bi-telephone-fill"></i></a>
+                <a href="#request-call" class="hero-icon-btn request" title="Request a Call"><i class="bi bi-telephone-outbound-fill"></i></a>
+                <a href="#contact" class="hero-icon-btn inquire" title="Inquire"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://facebook.com/yourpage" class="hero-icon-btn facebook" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://g.page/your-google-profile" class="hero-icon-btn google" target="_blank" title="Google Profile"><i class="bi bi-google"></i></a>
+            </div>
         </div>
     </section>
     <!-- Google Star Rating Bar -->
@@ -66,6 +65,10 @@
             </div>
         </div>
     </section>
+    <section id="menu" class="mb-5">
+        <h2 class="section-title">Menu / Packages</h2>
+        {% include '_menu_cards.html' %}
+    </section>
     <section id="why-us" class="mb-5">
         <h2 class="section-title">Why Choose Us?</h2>
         <div class="row justify-content-center">
@@ -101,12 +104,12 @@
             {% include '_why_flip_card.html' %}
         </div>
     </section>
-    <section id="menu" class="mb-5">
-  <h2 class="section-title">Menu / Packages</h2>
-  {% include '_menu_cards.html' %}
-</section>
+    
     <section id="deals" class="mb-5">
         <h2 class="section-title">Latest Deals</h2>
+        <div class="mb-3 text-center text-primary fw-semibold" style="font-size:1.1rem;">
+          අපි නිතරම විශේෂ ප්‍රවර්ධන Facebook හරහා පවත්වාගෙන යනවා! අලුත්ම වට්ටම් සහ ඉතිරිකිරීම් සඳහා අපගේ <a href="https://facebook.com/yourpage" target="_blank" class="text-decoration-underline">Facebook පිටුව</a> වෙත පිවිසෙන්න. ඔබටත් ඉතිරි කරන්න පුළුවන්!
+        </div>
         <div class="row">
             {% for deal in deals %}
             <div class="col-md-6 mb-3">

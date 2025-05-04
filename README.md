@@ -4,9 +4,15 @@ A web-based catering management application built with FastAPI, Jinja2, and SQLi
 
 ## Features
 - Public homepage displaying menus, deals, and gallery
+- Sinhala and English menu descriptions
+- Customisable Menu with included and optional items
 - Admin login and dashboard for managing content
 - Image gallery with automatic thumbnail generation
 - Session-based authentication for admin
+- Hero section with horizontal action buttons (Call, Request a Call, Inquire, Facebook, Google)
+- Menu detail popup with action icons and smooth navigation
+- "Latest Deals" section encourages users to check Facebook for promotions
+- Modern, responsive UI with code and style cleanup
 
 ## Tech Stack
 - **Backend:** FastAPI
@@ -58,6 +64,11 @@ catering_app/
 ├── requirements.txt
 └── README.md
 ```
+
+## Usage Notes
+- Click on any menu card to view details in a popup modal. Action icons at the bottom allow users to call, request a call, or inquire, and will close the modal before navigating.
+- The hero section's action buttons are always horizontal and centered.
+- The "Latest Deals" section contains a Sinhala message encouraging users to visit Facebook for current promotions and savings.
 
 ## Notes
 - Admin credentials are stored in the `admins` table in the database.
