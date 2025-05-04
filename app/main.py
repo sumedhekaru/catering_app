@@ -147,34 +147,64 @@ def home(request: Request, db=Depends(get_db)):
     gallery = get_gallery_images()  # Use the new gallery logic
     menu_items = [
         {
+            'id': 1,
+            'sinhala_desc': 'ඔබේ දවසට රසවත්ම රුචිර කෑම. සම්ප්‍රදායික ශ්‍රී ලංකා රසය හා පවුලේ උණුසුම එක්වූ විශේෂ අත්දැකීමක්.',
             'title': 'Rice & Curry',
             'description': 'Traditional Sri Lankan lunch with your choice of meat or vegetarian.',
             'phone': '+94771234567',
-            'image_url': '/static/gallery/thumbs/asian-6308470_1280.jpg'
+            'image_url': '/static/gallery/thumbs/asian-6308470_1280.jpg',
+            'included_items': ['Rice', 'Chicken Curry', 'Dhal', 'Salad'],
+            'optional_additions': ['Egg', 'Papadam', 'Wattalappam']
         },
         {
+            'id': 2,
             'title': 'Lamprais',
+            'sinhala_desc': 'ඉතාමත් විශේෂ ලම්ප්‍රයිස් පැකේජය—ඉතිහාසය සහ රසය එකට! අපගේ පාරිභෝගිකයින්ගේ ප්‍රියතම තේරීමකි.',
             'description': 'Classic Dutch-Sri Lankan rice parcel, slow-cooked to perfection.',
             'phone': '+94771234567',
-            'image_url': '/static/gallery/thumbs/asian-6314066_1280.jpg'
+            'image_url': '/static/gallery/thumbs/asian-6314066_1280.jpg',
+            'included_items': ['Rice', 'Mixed Meat Curry', 'Eggplant Moju', 'Seeni Sambol', 'Frikadeller', 'Egg'],
+            'optional_additions': ['Extra Meat', 'Fish Cutlet']
         },
         {
+            'id': 3,
             'title': 'Party Platter',
+            'sinhala_desc': 'කණ්ඩායම් සඳහා සුදුසුම, රසවත්ම කුඩා කෑම! ඔබේ උත්සවය තවත් රසවත් කරයි.',
             'description': 'Mixed short-eats, cutlets, pastries, and sandwiches for groups.',
             'phone': '+94771234567',
-            'image_url': '/static/gallery/thumbs/asian-6314066_1280.jpg'
+            'image_url': '/static/gallery/thumbs/asian-6314066_1280.jpg',
+            'included_items': ['Cutlets', 'Pastries', 'Sandwiches', 'Short-eats'],
+            'optional_additions': ['Mini Pizza', 'Sausage Roll']
         },
         {
+            'id': 4,
+            'sinhala_desc': 'සම්පූර්ණ ශාකහාරි රසය හා සෞඛ්‍ය සම්පන්නත්වය එකට. ඔබේ පවුලේ සැමට සුදුසුම විශේෂ පැකේජය.',
             'title': 'Vegetarian Special',
             'description': 'A wholesome, plant-based menu for all occasions.',
             'phone': '+94771234567',
-            'image_url': '/static/gallery/thumbs/buffet-6329758_1280.jpg'
+            'image_url': '/static/gallery/thumbs/buffet-6329757_1280.jpg',
+            'included_items': ['Rice', 'Dhal Curry', 'Mixed Veggies', 'Salad'],
+            'optional_additions': ['Papadam', 'Fruit Salad']
         },
         {
+            'id': 5,
+            'sinhala_desc': 'අති රසවත් වට්ටලප්පන්, පළතුරු සලාද සහ තවත් රසම රස පිඟාන. ඔබේ උත්සවයට මනරම් අවසන් රසය.',
             'title': 'Dessert Selection',
             'description': 'Watalappan, fruit salad, and other sweet treats.',
             'phone': '+94771234567',
-            'image_url': '/static/gallery/thumbs/godamba-roti-6324791_1280.jpg'
+            'image_url': '/static/gallery/thumbs/godamba-roti-6324791_1280.jpg',
+            'included_items': ['Watalappan', 'Fruit Salad', 'Ice Cream'],
+            'optional_additions': ['Chocolate Sauce', 'Cashew Topping']
+        },
+        {
+            'id': 6,
+            'title': 'Customisable Menu',
+            'sinhala_desc': 'ඔබේ රුචියට, අවශ්‍යතාවයට හා අවස්ථාවට අනුව සකස් කළ හැකි විශේෂ කෑම පැකේජය. ඔබටම අනුරූපව තෝරාගන්න! ',
+            'description': 'Build your own menu—choose your favourite dishes and sides for a truly personalised experience.',
+            'phone': '+94771234567',
+            'image_url': '/static/gallery/thumbs/buffet-6329757_1280.jpg',
+            'included_items': ['Your Choice of Rice', 'Any 2 Curries', 'Salad', 'Chutney'],
+            'optional_additions': ['Extra Curry', 'Dessert', 'Papadam']
         }
     ]
     return templates.TemplateResponse("home.html", {"request": request, "menus": menus, "deals": deals, "gallery": gallery, "menu_items": menu_items})

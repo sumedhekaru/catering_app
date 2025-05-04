@@ -1,0 +1,56 @@
+<!-- Modal for menu item details -->
+<div class="modal fade" id="menuDetailModal" tabindex="-1" aria-labelledby="menuDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="menuDetailModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+  <div class="row align-items-center">
+    <div class="col-4 text-center">
+      <img id="menuDetailImage" src="" alt="" class="img-fluid rounded mb-2" style="max-width: 110px; max-height: 110px;">
+    </div>
+    <div class="col-8">
+      <div class="mb-2 text-secondary" id="menuDetailSinhalaDesc" style="font-size: 1.1rem;"></div>
+    </div>
+  </div>
+  <h6 class="mt-3">Included Items</h6>
+  <ul id="menuDetailIncluded"></ul>
+  <h6 class="mt-3">Optional Additions</h6>
+  <ul id="menuDetailOptional"></ul>
+  <div class="mt-4 d-flex justify-content-center align-items-center gap-4">
+    <a id="menuDetailCall" href="#" class="hero-icon-btn call" title="Call"><i class="bi bi-telephone-fill"></i></a>
+    <a href="#request-call" class="hero-icon-btn request" title="Request a Call"><i class="bi bi-telephone-outbound-fill"></i></a>
+    <a href="#contact" class="hero-icon-btn inquire" title="Inquire"><i class="bi bi-envelope-fill"></i></a>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menuItems = {{ menu_items|tojson }};
+  let currentMenuItem = null;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.menu-card-trigger').forEach(card => {
+      card.addEventListener('click', function() {
+        const menuId = parseInt(this.getAttribute('data-menu-id'));
+        const item = menuItems.find(m => m.id === menuId);
+        if (item) {
+          currentMenuItem = item;
+          document.getElementById('menuDetailModalLabel').textContent = item.title;
+          document.getElementById('menuDetailImage').src = item.image_url;
+          document.getElementById('menuDetailImage').alt = item.title;
+          document.getElementById('menuDetailSinhalaDesc').textContent = item.sinhala_desc || '';
+          document.getElementById('menuDetailIncluded').innerHTML = item.included_items.map(i => `<li>${i}</li>`).join('');
+          document.getElementById('menuDetailCall').href = `tel:${item.phone || ''}`;
+          document.getElementById('menuDetailOptional').innerHTML = item.optional_additions.map(i => `<li>${i}</li>`).join('');
+          const modal = new bootstrap.Modal(document.getElementById('menuDetailModal'));
+          modal.show();
+        }
+      });
+    });
+  });
+</script>
