@@ -156,14 +156,4 @@
     </section>
 </div>
 {% endblock %}
-{% block scripts %}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.why-flip').forEach(function(flipCard) {
-        flipCard.addEventListener('click', function() {
-            flipCard.classList.toggle('flipped');
-        });
-    });
-});
-</script>
-{% endblock %}
+{% block scripts %}{% endblock %}
