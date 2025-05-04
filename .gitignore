@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+env/
+
+# SQLite database files
+*.db
+*.sqlite3
+
+# MacOS
+.DS_Store
+
+# VSCode settings
+.vscode/
+
+# Python egg metadata
+*.egg-info/
+
+dist/
+build/
+.eggs/
+
+# Logs
+*.log
+
+# Test and coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Other
+*.bak
+*.swp
+*.swo
+
+# Node modules (if any)
+node_modules/

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Admin Dashboard</h2>
+    <a href="/logout" class="btn btn-outline-danger mb-3">Logout</a>
+    <div class="mb-4">
+        <h3>Menu Items</h3>
+        <ul class="list-group">
+            {% for item in menus %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ item.name }} - {{ item.price }}
+                <!-- Add edit/delete buttons here -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="mb-4">
+        <h3>Deals</h3>
+        <ul class="list-group">
+            {% for deal in deals %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ deal.title }}
+                <!-- Add edit/delete buttons here -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="mb-4">
+        <h3>Gallery</h3>
+        <ul class="list-group">
+            {% for img in gallery %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <img src="{{ img.image_url }}" alt="{{ img.caption }}" style="height:40px;"> {{ img.caption }}
+                <!-- Add edit/delete buttons here -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+</html>
