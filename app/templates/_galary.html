@@ -1,0 +1,13 @@
+<!-- Gallery section extracted from home.html -->
+<section id="gallery" class="mb-5">
+    <h2 class="section-title">Gallery</h2>
+    <div class="row">
+        {% for img in gallery %}
+        <div class="col-4 mb-2">
+            <a href="/static/{{ img.large_url }}" class="glightbox" data-gallery="gallery" data-title="{{ img.caption }}">
+                <img src="/static/{{ img.image_url }}" class="img-fluid rounded shadow-sm" alt="{{ img.caption }}">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
