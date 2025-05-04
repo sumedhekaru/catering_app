@@ -1,7 +1,53 @@
 {% extends 'base.html' %}
 {% block title %}Pera Caters - Home{% endblock %}
 {% block head_extra %}
-    {# All custom CSS moved to static/styles.css #}
+    <style>
+    .hero-icon-btn {
+        background: #f8f9fa !important; /* off-white */
+        border: 1px solid #111 !important;
+        color: #495057 !important;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 2px 8px rgba(73, 71, 71, 0.04);
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.75rem !important; /* rounded corners, not full circle */
+        width: 56px;
+        height: 56px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+    .hero-icon-btn .bi {
+        font-size: 1.7rem;
+    }
+    .hero-icon-btn.call:hover {
+        background: #198754 !important; /* Bootstrap green */
+        color: #fff !important;
+    }
+    .hero-icon-btn.request:hover {
+        background: #ffc107 !important; /* Bootstrap yellow */
+        color: #fff !important;
+    }
+    .hero-icon-btn.inquire:hover {
+        background: #0d6efd !important; /* Bootstrap blue */
+        color: #fff !important;
+    }
+    .hero-icon-btn.facebook {
+        color: #1877f3 !important;
+    }
+    .hero-icon-btn.facebook:hover {
+        background: #1877f3 !important;
+        color: #fff !important;
+    }
+    .hero-icon-btn.google {
+        color: #ea4335 !important;
+    }
+    .hero-icon-btn.google:hover {
+        background: #ea4335 !important;
+        color: #fff !important;
+    }
+    </style>
 {% endblock %}
 {% block content %}
 <div class="container mt-4">
@@ -9,36 +55,32 @@
         <div class="hero-content">
             <div class="brand">Pera Caters</div>
             <div class="tagline">ඔබගේ විශේෂ අවස්ථාවන් සඳහා රසවත් ආහාර</div>
-            <a href="tel:07XXXXXXXX" class="btn btn-primary btn-lg me-2">📞 Call</a>
-            <a href="#" class="btn btn-warning btn-lg me-2" data-bs-toggle="modal" data-bs-target="#requestCallModal">📲 Request</a>
-            <a href="#contact" class="btn btn-success btn-lg">📝 Inquire</a>
+            <!-- Icons only, using Bootstrap Icons -->
+            <a href="tel:07XXXXXXXX" class="hero-icon-btn call" title="Call"><i class="bi bi-telephone-fill"></i></a>
+            <a href="#request-call" class="hero-icon-btn request" title="Request a Call"><i class="bi bi-telephone-outbound-fill"></i></a>
+            <a href="#contact" class="hero-icon-btn inquire" title="Inquire"><i class="bi bi-envelope-fill"></i></a>
+            <a href="https://facebook.com/yourpage" class="hero-icon-btn facebook" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://g.page/your-google-profile" class="hero-icon-btn google" target="_blank" title="Google Profile"><i class="bi bi-google"></i></a>
 
-            <!-- Request a Call Modal -->
-            <div class="modal fade" id="requestCallModal" tabindex="-1" aria-labelledby="requestCallModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="requestCallModalLabel">Request a Call</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="requestName" class="form-label">Your Name</label>
-                        <input type="text" class="form-control" id="requestName" placeholder="Enter your name">
-                      </div>
-                      <div class="mb-3">
-                        <label for="requestPhone" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="requestPhone" placeholder="Enter your phone number">
-                      </div>
-                      <button type="submit" class="btn btn-warning">Submit Request</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
+
         </div>
     </section>
+    <!-- Google Star Rating Bar -->
+    <div class="text-center mb-4">
+        <a href="https://g.page/your-google-profile" target="_blank" style="text-decoration:none;">
+            <span class="d-inline-flex align-items-center justify-content-center" style="font-size:1.7rem;">
+                <span class="fw-bold me-2" style="font-size:1.3rem; color:#111;">4.9</span>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-fill text-warning"></i>
+                <i class="bi bi-star-half text-warning"></i>
+                <span class="ms-2" style="color:#666; font-size:1rem;">(120+ Google reviews)</span>
+                <i class="bi bi-google ms-2" style="color:#ea4335; font-size:1.5rem;"></i>
+            </span>
+        </a>
+    </div>
+    {% include '_galary.html' %}
     <section id="services" class="mb-5">
         <h2 class="section-title">අපගේ සේවා</h2>
         <div class="row g-3 justify-content-center">
@@ -163,6 +205,9 @@
         </div>
         <a href="https://facebook.com/yourpage" target="_blank" class="btn btn-outline-primary">See more on Facebook</a>
     </section>
+
+    {% include '_reviews_carousel.html' %}
+    
     <section id="contact" class="mb-5">
         <h2 class="section-title">Inquiry Form</h2>
         <form method="post" action="#">
@@ -179,6 +224,18 @@
                 <textarea class="form-control" name="details" rows="3" placeholder="Event Details"></textarea>
             </div>
             <button type="submit" class="btn btn-success">Submit Inquiry</button>
+        </form>
+    </section>
+    <section id="request-call" class="mb-5">
+        <h2 class="section-title text-warning">Request a Call</h2>
+        <form>
+            <div class="mb-3">
+                <input type="text" class="form-control" name="request_name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="tel" class="form-control" name="request_phone" placeholder="Phone Number" required>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">📲 Request Call</button>
         </form>
     </section>
 </div>
