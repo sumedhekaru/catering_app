@@ -145,7 +145,39 @@ def home(request: Request, db=Depends(get_db)):
     menus = db.execute("SELECT * FROM menus").fetchall()
     deals = db.execute("SELECT * FROM deals").fetchall()
     gallery = get_gallery_images()  # Use the new gallery logic
-    return templates.TemplateResponse("home.html", {"request": request, "menus": menus, "deals": deals, "gallery": gallery})
+    menu_items = [
+        {
+            'title': 'Rice & Curry',
+            'description': 'Traditional Sri Lankan lunch with your choice of meat or vegetarian.',
+            'phone': '+94771234567',
+            'image_url': '/static/gallery/thumbs/asian-6308470_1280.jpg'
+        },
+        {
+            'title': 'Lamprais',
+            'description': 'Classic Dutch-Sri Lankan rice parcel, slow-cooked to perfection.',
+            'phone': '+94771234567',
+            'image_url': '/static/gallery/thumbs/asian-6314066_1280.jpg'
+        },
+        {
+            'title': 'Party Platter',
+            'description': 'Mixed short-eats, cutlets, pastries, and sandwiches for groups.',
+            'phone': '+94771234567',
+            'image_url': '/static/gallery/thumbs/asian-6314066_1280.jpg'
+        },
+        {
+            'title': 'Vegetarian Special',
+            'description': 'A wholesome, plant-based menu for all occasions.',
+            'phone': '+94771234567',
+            'image_url': '/static/gallery/thumbs/buffet-6329758_1280.jpg'
+        },
+        {
+            'title': 'Dessert Selection',
+            'description': 'Watalappan, fruit salad, and other sweet treats.',
+            'phone': '+94771234567',
+            'image_url': '/static/gallery/thumbs/godamba-roti-6324791_1280.jpg'
+        }
+    ]
+    return templates.TemplateResponse("home.html", {"request": request, "menus": menus, "deals": deals, "gallery": gallery, "menu_items": menu_items})
 
 @app.get("/admin/login", response_class=HTMLResponse)
 def admin_login_get(request: Request):

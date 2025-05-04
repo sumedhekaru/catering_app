@@ -103,40 +103,11 @@
         </div>
     </section>
     <section id="menu" class="mb-5">
-        <h2 class="section-title">Menu / Packages</h2>
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                {% set title = 'Rice & Curry' %}
-                {% set description = 'Traditional Sri Lankan lunch with your choice of meat or vegetarian.' %}
-                {% set phone = '+94771234567' %}
-                {% include '_menu_card.html' %}
-            </div>
-            <div class="col-md-4 mb-3">
-                {% set title = 'Lamprais' %}
-                {% set description = 'Classic Dutch-Sri Lankan rice parcel, slow-cooked to perfection.' %}
-                {% set phone = '+94771234567' %}
-                {% include '_menu_card.html' %}
-            </div>
-            <div class="col-md-4 mb-3">
-                {% set title = 'Party Platter' %}
-                {% set description = 'Mixed short-eats, cutlets, pastries, and sandwiches for groups.' %}
-                {% set phone = '+94771234567' %}
-                {% include '_menu_card.html' %}
-            </div>
-            <div class="col-md-4 mb-3">
-                {% set title = 'Vegetarian Special' %}
-                {% set description = 'A wholesome, plant-based menu for all occasions.' %}
-                {% set phone = '+94771234567' %}
-                {% include '_menu_card.html' %}
-            </div>
-            <div class="col-md-4 mb-3">
-                {% set title = 'Dessert Selection' %}
-                {% set description = 'Watalappan, fruit salad, and other sweet treats.' %}
-                {% set phone = '+94771234567' %}
-                {% include '_menu_card.html' %}
-            </div>
-        </div>
-    </section>
+  <h2 class="section-title">Menu / Packages</h2>
+  
+  {% include '_menu_cards.html' %}
+</section>
+
 
     <section id="deals" class="mb-5">
         <h2 class="section-title">Latest Deals</h2>
